@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap');
+body{
+    width:100%;
+    margin:auto;
+    padding:50px;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+}
+
+.headerContainer {
+    width: 990px;
+    margin: 0 auto;
+}
+
+.headerOfHeaderContainer {
+    background: #6396bc;
+    width: 100%;
+    top: 0;
+    position: fixed;
+}
+
+.logo {
+    float: left;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.nav {
+    float: right;
+    margin-left: 50px;
+    padding-top: 5px;
+}
+
+li{
+    list-style: none;
+    float: left;
+    margin-left:200px;
+    padding-top: 30px;
+}
+
+/* ===========================================================
+   ===================== Body style ==========================
+   =========================================================== */ 
+body {
+    padding:100px 0px;
+    font-size: 14px;
+    font-style: Verdana, Tahoma, sans-serif;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #474E69;
+}
+
+   /* ========================================================
+   =================== 2-Column Table ========================
+   =========================================================== */
+
+   * {
+    box-sizing: border-box;
+  }
+  
+  /* Create two equal columns that floats next to each other */
+  .column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+    height: 300px; /* Should be removed. Only for demonstration */
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 600px) {
+    .column {
+      width: 100%;
+    }
+  }
+   /* ========================================================
+   ===================== Contact form ========================
+   =========================================================== */
+
+   input, textarea {
+    padding: 10px;
+    border: 1px solid #E5E5E5;
+    width: 200px;
+    color: #999999;
+    box-shadow: rgba(0, 0 ,0, 0.2) 0px 0px 8px;
+    -moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
+}
+
+textarea {
+    width: 600px;
+    height: 150px;
+    max-width: 600px;
+    line-height: 18px;
+}
+
+input:hover, textarea:hover,
+input:focus, textarea:focus {
+    border-color: 1px solid #C9C9C9;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 8px;
+    -moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
+}
+
+.form label {
+    margin-left: 10px;
+    color: #999999;
+}
+
+
+.form .userName {
+    padding-right: 45px;
+    padding-left: 100px
+}
+
+.form .email {
+    padding-right: 50px;
+    padding-left: 50px
+}
+
+h2 {
+    column-span: all;
+    column-width: 45%;
+}
+
+
+      /* ========================================================
+   ===================== Submit button ========================
+   =========================================================== */
+
+   .submit input {
+       width: 80%;
+       height: 40px;
+       background-color: #474E96;
+       color: #FFF;
+       border-radius: 3px;
+       -moz-border-radius: 3px;
+       -webkit-border-radius: 3px;
+   }
+
+      /* ========================================================
+   ===================== Social Media Button(s) ========================
+   =========================================================== */
+   .fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 90%;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+  }
+  
+  .fa:hover {
+      opacity: 0.7;
+  }
+  
+  .fa-facebook {
+    background: #3B5998;
+    color: white;
+  }
+
+  
