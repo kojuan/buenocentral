@@ -86,7 +86,6 @@ session_start();
         document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
         }
     </script>
- 
 
 </html>
 
@@ -102,8 +101,9 @@ session_start();
         if($open = opendir($folder)){
             while (($file = readdir($open)) !=false){
                 if ($file =="." || $file =='..') continue;
-                echo ' <a href="assets/images/gallery/'.$file.'" data-lightbox="mygallery"><img src ="assets/images/gallery/'.$file.'"width="20%"></a>';
-                
+
+                echo ' <a href="assets/images/gallery/'.$file.' "data-lightbox="mygallery" ><img src ="assets/images/gallery/'.$file.'
+                "width="24.5%"></a>';
             }
             closedir($open);
         }

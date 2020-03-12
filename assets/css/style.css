@@ -26,7 +26,7 @@ body{
 
 a {
     text-decoration: none;
-    color: #fff;
+    color: #ffffff;
 }
 
 .nav {
@@ -175,7 +175,7 @@ ul li input[type="radio"]:checked ~ .slide img {
    ======================================================================== */
 
    * {box-sizing: border-box}
-body {font-family: Verdana, sans-serif; margin:0}
+body {font-family: Verdana, sans-serif; margin:100}
 .mySlides {display: none}
 img {vertical-align: middle;}
 

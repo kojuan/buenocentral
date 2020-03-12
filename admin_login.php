@@ -1,6 +1,6 @@
 <html>
     <head>
-        <body>
+        <body style="background-color: rgb(51, 52, 53);">
             <link href="assets/css/admin_login.css" type="text/css" rel="stylesheet"/>
             <link rel="stylesheet" href="assets/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
             

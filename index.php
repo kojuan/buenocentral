@@ -113,7 +113,7 @@
                 echo "<div style='background-color:#216583;'><p style='color:#bae9ff'>";
                 echo "<legend>" . $announcement . "</legend><br>";
                 $fileOpen = fopen($filename . $announcement, 'r');
-                $fileRead = fread($fileOpen, 100);
+                $fileRead = fread($fileOpen, 1000);
                 echo $fileRead . "<br><br>";
                 fclose($fileOpen);
         
@@ -174,7 +174,14 @@
         <button onclick="topFunction()" id="goTopButton" title="Go to top"><img src="assets/images/topImageButton.png"></button>
     </p>
     <center><img src="assets/images/latestUpdates.png"></center>
-    <center>Latest merchandise of Bueno Central</center>
+    <center>
+        Latest merchandise of Bueno Central <br>
+        RESERVE NOW <br>
+         / button / here
+         <br>
+
+    </center>
+    
     
     <!-- <div id="fb-root"></div>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0"></script>

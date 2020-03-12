@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-
-
 <html>
-
-
 <head>
 <title>Bueno Central - Contact Form</title>
 <meta charset="utf-8" />
 <link href="assets/css/contactformstyle.css" type="text/css" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
 </head>
 <div class="headerOfHeaderContainer">
@@ -28,110 +27,57 @@
     </div>
 </div>
 
-
 <body>
-    <br>
-  
 
-    <div class="row"> <!-- table -->
-  <div class="column"> <!-- first column -->
-  <center><h2>Contact Form</h2></center>
+<div class="row"> <!-- table -->
+<div class="column"> <!-- first column -->
 
-  <form name="contactform" class="form" action="?" method="post">
+<section id="contact">
 
-    <p class="name">
-        <label for="name" class="userName">Name</label>
-        <input type="text" name="name" id="name" placeholder="Enter name here..." />
-    </p>
+<h2 class="text-center text-uppercase">contact us</h2>
+    <div class="container">
+       
+        <div class="row">
 
-    <p class="email">
-        <label for="email" class="email">Email</label>
-        <input type="text" name="email" id="email" placeholder="your_email@example.com" />
-    </p>
-
-    <p class="text">
-        <textarea name="text" placeholder="Enter message here..."></textarea>
-    </p>
-
-    <p class="submit">
-        <input type="submit" value="Send">
-    </p>
-</form>
-
-<?php
-if(isset($_POST['email'])) {
+            <div class="col-sm-12 col-md-6 col-lg-3 my-5">
+            <div class="card border-0">
+                <div class="card-body text-center">
+                <i class="fa fa-phone fa-5x mb-3" aria-hidden="true"></i>
+                <h4 class="text-uppercase mb-5">TEL. NUMBER</h4>
+                <p>811-3506<br>388-3206</p>
+                </div>
+   
+            </div>
  
-    // EDIT THE 2 LINES BELOW AS REQUIRED
-    $email_to = "khian_juan@yahoo.com";
-    $email_subject = "NO SUBJECT LINE";
-
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-3 my-5">
+            <div class="card border-0">
+                <div class="card-body text-center">
+                <i class="fa fa-map-marker fa-5x mb-3" aria-hidden="true"></i>
+                <h4 class="text-uppercase mb-5">Business Location</h4>
+                <address>Quezon Street, Central, 8200 City of Mati, Davao Oriental </address>
+                </div>
+            </div>
+            </div>
     
-    function died($error) {
-        // your error code can go here
-        echo "We are very sorry, but there were error(s) found with the form you submitted. ";
-        echo "These errors appear below.<br /><br />";
-        echo $error."<br /><br />";
-        echo "Please go back and fix these errors.<br /><br />";
-        die();
-    }
-
-    
-    // validation expected data exists
-    if(!isset($_POST['name']) ||
-        !isset($_POST['email']) ||
-        !isset($_POST['text']))
-        {
-            died('We are sorry, but there appears to be a problem with the form you submitted.');       
-        }
-
-    $fullName = $_POST['name']; // required
-    $email_from = $_POST['email']; // required
-    $comments = $_POST['text']; // required
-    
-    $error_message = "";
-    $email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
-     
-    if(!preg_match($email_exp,$email_from)) {
-        $error_message .= 'The Email Address you entered does not appear to be valid.<br />';
-      }
-     
-        $string_exp = "/^[A-Za-z .'-]+$/";
-    
-    if(!preg_match($string_exp,$fullName)) {
-        $error_message .= 'The First Name you entered does not appear to be valid.<br />';
-        }
-
-    if(strlen($comments) < 2) {
-        $error_message .= 'The Comments you entered do not appear to be valid.<br />';
-        }
-        
-        if(strlen($error_message) > 0) {
-            died($error_message);
-        }
-        
-        $email_message = "Form details below.\n\n";
-          
-    function clean_string($string) {
-        $bad = array("content-type","bcc:","to:","cc:","href");
-        return str_replace($bad,"",$string);
-      }
-
-      $email_message .= "Name: ".clean_string($fullName)."\n";
-      $email_message .= "Email: ".clean_string($email_from)."\n";
-      $email_message .= "Message: ".clean_string($comments)."\n";
-
-      // create email headers
-        $headers = 'From: '.$email_from."\r\n".
-        'Reply-To: '.$email_from."\r\n" .
-        'X-Mailer: PHP/' . phpversion();
-        @mail($email_to, $email_subject, $email_message, $headers);  
-        ?>
-            <!-- include your own success html here -->
-            Thank you for contacting us. We will be in touch with you very soon.
-            <?php
-            }
-        ?>
-
+            <div class="col-sm-0 col-md-0 col-lg-5 my-5">
+            <div class="card border-0">
+                <div class="card-body text-center">
+                <i class="fa fa-globe fa-5x mb-3" aria-hidden="true"></i>
+                <h4 class="text-uppercase mb-5">Business Email</h4>
+                <p>buenocentralmati@gmail.com</p>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    </section>
+</center>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 
 <!-- <a href="https://www.facebook.com/BuenoCentral/" class="fa fa-facebook"></a> -->
 <div id="fb-root"></div>
@@ -149,8 +95,6 @@ if(isset($_POST['email'])) {
   <div class="mapouter"><div class="gmap_canvas"><iframe width="750" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=bueno%20central%20mati&t=k&z=17&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.embedgooglemap.net/blog/nordvpn-coupon-code/">for major operating systems</a></div><style>.mapouter{position:relative;text-align:right;height:500px;width:750px;}.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:750px;}</style></div>
   </div>
 </div>
-
-
  
 </body>
 

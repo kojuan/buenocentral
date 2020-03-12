@@ -1,9 +1,10 @@
-<br><br><br><br><br>
+
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 <script>
     window.onscroll = function() {stickyHeader()};
 
@@ -27,28 +28,26 @@
 <html>
 <head>
 <title>Bueno Central</title>
-<link href="assets/css/ADMINConfirmationPage.css" type="text/css" rel="stylesheet"/>
+<link href="assets/css/AdminPage.css" type="text/css" rel="stylesheet"/>
 
 </head>
 
-<div class="headerOfHeaderContainer">
 
-    <div class="headerContainer" id="headContainerSticky">
-
-        <div class="logo">
-            <a href="#"><img src="assets/images/bc_header.png"></a>
-            <button type="button" class="btn btn-default btn-sm">
-                <a href="admin_login.php" class="btn btn-info btn-lg">
-                    <span class="glyphicon glyphicon-log-out"></span> Log out</a>
-              </button>
-        </div>
+<center>
+    <div class="logo">
+        <a href="#"><img src="assets/images/bc_header.png"></a>
+        <button type="button" class="btn btn-default btn-sm">
+        <a href="admin_login.php" class="btn btn-info btn-lg">
+        <span class="glyphicon glyphicon-log-out"></span> Log out</a>
+        </button>
     </div>
-</div>
+</center>
 
-<br>
+<br><br><br><br><br>
 <body>
     <center>
-<?php
+    <br><br><br><br><br>
+    <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST"){
         if ($_POST["operation"] == "Add"){
             //Create file
@@ -62,19 +61,39 @@
 
             fclose($createFile);
 
-            echo $_POST["filename"] . " has been successfully added!<br>";
+            echo $_POST["filename"] . " has been successfully added!<br><br>";
         } 
         else if ($_POST["operation"] == "Edit"){
             //Edit
 
-            $fileOpen = fopen($_POST["filename"], 'rb');
-            $fileRead = fread($_POST["filename"], filesize($_POST["filename"]));
-            ?>
-            <textarea name="desc" rows="3" cols="100" value=<?php $fileRead; ?>></textarea>
-            <?php 
+            $fileOpen = fopen("assets/txt/" . $_POST["filename"], 'r');
+            $fileRead = fread($fileOpen, filesize("assets/txt/" . $_POST["filename"]));
+            
+            while(!feof($fileOpen)) {
+                $data = fgets($fileOpen, filesize("assets/txt/" . $_POST["filename"]));
+                echo '<textarea name="newDesc" rows="10" cols="200">' . file_get_contents("assets/txt/" . $_POST["filename"]) . '</textarea>';
+                
+            }
             fclose($fileOpen);
 
-            echo $_POST["filename"] . " has been successfully edited!<br>";
+            ?>
+            <form action="?" method="post">
+                <input type="submit" name="operation" value="EDIT ANNOUNCEMENT">
+            </form>
+            
+            <?php
+            if ($_POST["operation"] == "EDIT ANNOUNCEMENT") {
+                echo "The announcement has been successfully edited.";
+                $fhandle = fopen("assets/txt/" . $_POST["filename"] . ".txt", "r") or die("Unable to open file!");
+                $content = fread($_POST["newDesc"]);
+                fwrite($fhandle, $content);
+                fclose($fhandle);
+
+            }
+            ?>
+            
+<br><br><br><br><br><br><br><br><br><br>
+            <?php 
         }
 
         else if ($_POST["operation"] == "Upload"){
@@ -97,18 +116,20 @@
         }
     }
 ?>
+
 <div>
+<fieldset>
     <form action="?" method="post">
-        <fieldset>
+       
             <legend>ADD Announcement</legend>
             Filename ->  <input type="text" size=40% name="filename" placeholder="Enter Filename" required/><br>
             
             Description -> <textarea name="desc" rows="3" cols="100" placeholder="Enter announcement. This entire message of this textbox will display on the user end." required></textarea>
             <br><input type="submit" name="operation" value="Add">
-        </fieldset>
+
     </form>
     <form action="?" method="post">
-        <fieldset>
+            <br><br><br>
             <legend>EDIT Announcement</legend>
             <select id="files" name="filename">
                 <?php
@@ -125,36 +146,36 @@
                 ?>
                 
             </select>
+            <br>
             <input type="submit" name="operation" value="Edit">
-        </fieldset>
+        
     </form>
     <form action="?" method="post">
-        <fieldset>
+    <br><br><br>
             <legend>DELETE Announcement</legend>
             <select id="files" name="filename">
+            
                 <?php
                 $fileNotExist = true;
                 foreach (scandir("assets/txt/") as $announcement){
                     if ($announcement != "." && $announcement != ".."){
                         echo '<option value="' . $announcement . '">' . $announcement . '</option>';
                         $fileNotExist = false;
-                    }
-
-                    
+                        
+                    } 
                 }
                 if ($fileNotExist){
                     echo '<option value="None">None</option>';
                 }
                 ?>
+    
                 <input type="submit" name="operation" value="Delete">
-                <br>
              
             </select>
-        </fieldset>
     </form>
+    </fieldset>
 </div>
-</center>
-<center>
+<br><br><br>
     <h1>Upload Gallery</h1>
     <form action="?" method="post" enctype="multipart/form-data">
         Filename: <input type="file" name="file" accept="image/x-png,image/jpeg"> 
@@ -164,5 +185,5 @@
 
 </body>
 
-
 </html>
+
