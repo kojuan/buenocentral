@@ -1,7 +1,3 @@
-<?php
-session_start();
-?>
-
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -37,7 +33,7 @@ session_start();
         <div class="logo">
             <a href="#"><img src="assets/images/bc_header.png"></a>
             <button type="button" class="btn btn-default btn-sm">
-            <a href="admin_login.php" class="btn btn-info btn-lg">
+            <a href="admin_logout.php" class="btn btn-info btn-lg">
             <span class="glyphicon glyphicon-log-out"></span> Log out</a>
             </button>
         </div>
@@ -106,7 +102,7 @@ session_start();
                 if (isset($fileOperation)) {
                     echo " The file " . $fileOperation . " has been deleted.";
                     unlink("assets/txt/". $fileOperation); // DELETE .txt File
-                    
+
                 }
                 
             }

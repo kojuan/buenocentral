@@ -92,7 +92,7 @@ $refNum = getName($n);
             ?>
            <center>=-=-=-=-=-=-=-==-=-=-=-=-=-=-=-==-=-=-=-=-=-=-=-==-=-=-=-=-=-=-=-==-=-=-=-=-=-=-=-=-=-=-=-=-=-=</center>
             </div>
-            <center> <a href="#" onclick="HTMLtoPDF()" style="color:black;">Save as .PDF </a>  <br><br>
+            <center> <a href="#" onclick="HTMLtoPDF()" style="color:black;">Save Receipt as .PDF file</a>  <br><br>
 <a href="index.php" class="btn btn-primary btn-sm" style="color:black;">Go back to Homepage</center></a>
             <br><br>
             <center><img src="assets/images/BCUWAK.png"></center>

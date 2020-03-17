@@ -5,23 +5,22 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="assets/css/style.css" type="text/css" rel="stylesheet"/>
+<link href="assets/css/contactformstyle.css" type="text/css" rel="stylesheet"/>
 </head>
 <div class="headerOfHeaderContainer">
-
     <div class="headerContainer" id="headContainerSticky">
-
         <div class="logo">
             <a href="index.php"><img src="assets/images/bc_header.png"></a>
         </div>
 
         <div class="nav">
-                <li><a href="index.php">Home</a></li>
+                <li><a href="#">Home</a></li>
                 <li><a href="gallery.php">Gallery</a></li>
-                <li><a href="#">Contact Us</a></li>
+                <li><a href="contactform.php">Contact Us</a></li>
+
         </div>
     </div>
 </div>
-
 <body>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
