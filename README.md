@@ -1,5 +1,15 @@
 # buenocentral
 
-Screenshots at the moment:
+# Current update: 
+<p> -Added logic through admin login, register, and panel </p>
 <br>
-<a href="https://ibb.co/4T4hN3c"><img src="https://i.ibb.co/4T4hN3c/Screenshot-129.png" alt="Screenshot-129" border="0"></a> <a href="https://ibb.co/hDynbs9"><img src="https://i.ibb.co/hDynbs9/Screenshot-130.png" alt="Screenshot-130" border="0"></a> <a href="https://ibb.co/Qn0gtNX"><img src="https://i.ibb.co/Qn0gtNX/Screenshot-131.png" alt="Screenshot-131" border="0"></a>
+<p> -Cannot open Admin PANEL, if the User is NOT LOGGED IN. Must logged in first. </p>
+<br>
+<p> - Improved GUI in ADMIN </p>
+<br>
+<p> - Added TIME, DATE, and ABOUT US in [index.php] </p>
+<br>
+<p> - Overall, Bug fixes on my logical end :)
+
+<br>
+#March 18, 2020 - 3:49pm update
