@@ -51,6 +51,7 @@
             <link href="assets/css/admin_login.css" type="text/css" rel="stylesheet"/>
             <link rel="stylesheet" href="assets/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
         <content>    
+        <center><img src="assets/images/bc_header.png"></a></center>
         <center>
             <div class="container">
                 <div class="login">
@@ -67,9 +68,9 @@
                     <p>    
                         <input type="password" name="password2" id="password" placeholder="Confirm Password" required="required" class="input-txt" />
                     </p> 
-                        <input type="submit" id="btn" class="btn btn--right" name="register" value="  (Register Admin Account)" />
+                        <input type="submit" id="btn" class="goToIndexBtn" name="register" value="  (Register Admin Account)" />
                         <br><br>
-                        <a href="admin_login.php"><input type="button" id="btn" class="btn btn--right" name="login" value="(Login to Existing Account)    " /></a>
+                        <a href="admin_login.php"><input type="button" id="btn" class="goToIndexBtn" name="login" value="(Login to Existing Account)    " /></a>
                     </form>
                 </div>
             </div>

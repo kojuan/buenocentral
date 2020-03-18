@@ -1,5 +1,28 @@
+<?php
+session_start();
+    $conn = new mysqli('localhost', 'root', '', 'bc');
 
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    } 
 
+    $sql = "UPDATE countervisit SET visits = visits+1 WHERE id = 1";
+    $conn->query($sql);
+
+    $sql = "SELECT visits FROM countervisit WHERE id = 1";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+            $visits = $row["visits"];
+        }
+    } else {
+        echo "no results";
+    }
+    
+    $conn->close();
+?>
+     
 <!DOCTYPE html>
 <script>
     window.onscroll = function() {stickyHeader()};
@@ -54,8 +77,20 @@
 </div>
 
 <body>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <br><br><br><br>
+    <center><p>[Date / Time]: <span id="time"></span></p></center>
+    <br>
+    <script type="text/javascript">
+        let timestamp = '<?=time();?>';
+        function updateTime(){
+        $('#time').html(Date(timestamp));
+        timestamp++;
+        }
+        $(function(){
+        setInterval(updateTime, 1000);
+        }); 
+    </script>
 
     <center><div>
     <fieldset>
@@ -128,8 +163,18 @@
         return $data;
         }
     ?>
+
     <center>
-    <div id="booking" class="section">
+    <a href="#" class="buttonBCEXCLUSIVES" name="btnBcExclusives" disabled>BC EXCLUSIVES</a>
+     <!-- The Band Section -->
+  <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
+    <h2 class="w3-wide">ABOUT US</h2>
+    <p class="w3-opacity"><i>"Basta Bueno, Barato!"</i></p>
+    <p class="w3-justify"> The Bueno Central provides convenient style of shopping experience.  We're dedicated to giving you the very best of local and exported products, with a focus on customer service and business quality.
+    Established on 2015, Bueno Central has come a long way from its beginnings in the City of Mati, Davao Oriental.
+    </p>
+
+    <!-- <div id="booking" class="section">
 		<div class="section-center">
 			<div class="container">
 				<div class="row">
@@ -137,7 +182,7 @@
 						<div class="booking-form">
 							<form action="reservation_confirm.php" method="post">
 								<div class="booking-cta">
-                                <h2>BC UWAK TSHIRT</h2>
+                                <h2>BC EXCLUSIVES</h2>
                                 <h1>Make your reservation</h1>
 
 								</div>
@@ -213,7 +258,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 
 	<script src="assets/js/jquery.min.js"></script>
 	<script>

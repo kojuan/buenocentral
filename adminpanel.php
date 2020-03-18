@@ -1,3 +1,25 @@
+<?php
+    $conn = mysqli_connect("localhost", "root", "", "bc");
+    error_reporting(E_ALL);
+    session_start();
+    $_SESSION['username'];
+
+?> 
+<?php
+if(isset($_POST['delete_btn']))
+{
+    $uName = $_SESSION['username'];
+    $query = "delete from users where username= $uName";
+    mysqli_query($conn, $query);
+    header("Refresh:1; url=admin_login.php");
+    echo '<script type="text/javascript">
+        alert("Deleted account successfully.");
+        </script>';
+
+
+}
+?>
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -27,18 +49,21 @@
     <link href="assets/css/AdminPage.css" type="text/css" rel="stylesheet"/>
     
     </head>
-    
-    
+    <hr>
     <center>
+
         <div class="logo">
             <a href="#"><img src="assets/images/bc_header.png"></a>
-            <button type="button" class="btn btn-default btn-sm">
-            <a href="admin_logout.php" class="btn btn-info btn-lg">
-            <span class="glyphicon glyphicon-log-out"></span> Log out</a>
-            </button>
+            <br><br>
+            <button type="button" class="btn btn-default btn-sm"><a href="admin_logout.php" ><span class="glyphicon glyphicon-log-out"></span> Log out</a></button>
+            <br>
+            <form method="post" action="">
+                <td><button type="submit" class="btn btn-danger" name="delete_btn">Delete Admin Account</button></td>
+            </form>
         </div>
     </center>
-    
+    <hr>
+    <hr>
     <br><br><br><br><br>
     <body>
         <center>
@@ -176,6 +201,7 @@
             <input type="submit" name="operationUpload" value="Upload">
         </form>
     </center>
+    <br><br><br>
     
     </body>
     

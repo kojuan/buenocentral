@@ -11,11 +11,19 @@ if(isset($_POST["username"]))
     $salted = "456y45rghtrhfgrhywsetr".$password."fdgfdsgsfgd";
     $hashed = hash('sha512', $salted);
 
-    $query = "SELECT * FROM users WHERE username='$username' AND passwordchar='$hashed'";
+    $query = "SELECT * FROM users WHERE username='$username' AND passwordchar='$hashed' ";
     $result = mysqli_query($dbc, $query) or die("Bad SQL: $sql");  
    
     if(mysqli_num_rows($result) > 0)
     {  
+         /* there is a recordset so fetch into as array */
+        $row=mysqli_fetch_assoc( $result );
+
+        /* extract the required variables from recordset array */
+        $userid = $row['id'];
+
+        $_SESSION['username'] = $username;
+        $_SESSION['id'] = $userid; // <-this variable should now exist
          echo '<script type="text/javascript">
                 alert("Logged in Success.");
             </script>';
@@ -35,7 +43,7 @@ if(isset($_POST["username"]))
         <body style="background-color: rgb(51, 52, 53);">
             <link href="assets/css/admin_login.css" type="text/css" rel="stylesheet"/>
             <link rel="stylesheet" href="assets/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-            
+            <center><img src="assets/images/bc_header.png"></a></center>
             <content><center>
             <div class="container">
                 <div class="login">
@@ -51,9 +59,12 @@ if(isset($_POST["username"]))
                     </p> 
                     <p> 
                         <div class="login-footer">
-                        <input type="submit" id="btn" class="btn btn--right" name="login" value="Login" />
+                        <input type="submit" id="btn" class="goToIndexBtn" name="login" value="Login" />
                         <br><br>
-                        <a href="admin_register.php"><input type="button" id="btn" class="btn btn--right" name="register" value="(Register a New Admin Account)" /></a>
+                        <a href="admin_register.php" class="goToIndexBtn" name="register">Register a New Admin Account</a>
+                        <br><br>
+                        <a href="index.php" class="goToIndexBtn">Go to INDEX Homepage</a>
+                   
                     </p>
                 
                         </div>
