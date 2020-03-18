@@ -1,19 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Tenor+Sans);
 
-@mixin placeholder($color: $placeholder-text) {
-  &:-moz-placeholder {
-    color: $color;
-  }
-  &:-ms-input-placeholder {
-    color: $color;
-  }
-  &::-webkit-input-placeholder {
-    color: $color;
-  }
-}
-
-
-
 html{
   background-color: rgb(51, 52, 53);
 }
@@ -29,6 +15,7 @@ html{
 .login-heading{
   font: 1.8em/48px;
   color: white;
+  font-family: 'Baloo Chettan 2', cursive;
 }
 
 .input-txt{
@@ -42,7 +29,7 @@ html{
 }
 .login-footer{
   margin: 10px 0;
-  overlow: hidden;
+  overflow: hidden;
   float: left;
   width: 100%;
 }
@@ -93,4 +80,3 @@ html{
 	top:1px;
 }
 
-        

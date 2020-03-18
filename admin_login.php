@@ -1,3 +1,4 @@
+
 <?php
  $dbc = mysqli_connect("localhost", "root", "", "bc");  
 session_start();
@@ -31,16 +32,18 @@ if(isset($_POST["username"]))
     }  
     else  
     {  
-                    //return false;  
-                    echo '<script>alert("Wrong User Details")</script>';  
-                    $_SESSION = [];
-                    session_destroy();  
+        //return false;  
+        echo '<script>alert("Wrong User Details")</script>';  
+        $_SESSION = [];
+        session_destroy();  
     } 
 }
 ?>
 <html>
     <head>
         <body style="background-color: rgb(51, 52, 53);">
+        <link href="https://fonts.googleapis.com/css?family=Baloo+Chettan+2&display=swap" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
             <link href="assets/css/admin_login.css" type="text/css" rel="stylesheet"/>
             <link rel="stylesheet" href="assets/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
             <center><img src="assets/images/bc_header.png"></a></center>
@@ -48,7 +51,8 @@ if(isset($_POST["username"]))
             <div class="container">
                 <div class="login">
                     <h1 class="login-heading">
-                    <strong><font face="Arial">ADMIN</strong> Login</h1></font></h1>
+                    <strong>ADMIN</strong> Login</h1></font>
+
                     <!-- WHEN USER AND PASSWORD IS SUBMITTED, IT WILL GO TO THE loginConfirmation.php file -->
                     <form action="?" method="post" enctype="multipart/form-data"> 
                     <p>
@@ -64,14 +68,26 @@ if(isset($_POST["username"]))
                         <a href="admin_register.php" class="goToIndexBtn" name="register">Register a New Admin Account</a>
                         <br><br>
                         <a href="index.php" class="goToIndexBtn">Go to INDEX Homepage</a>
-                   
                     </p>
-                
-                        </div>
+                    </div>
+                    <font color="white">[Date / Time] <span id="time"></span></font>
+                    <script>
+                        let timestamp = '<?=time();?>';
+                        function updateTime(){
+                        $('#time').html(Date(timestamp));
+                        timestamp++;
+                        }
+                        $(function(){
+                        setInterval(updateTime, 1000);
+                        }); 
+                    </script>
                     </form>
                 </div>
             </div>
             </content></center>
+       
+    <br>
+
         </body>
     </head>
   </html>

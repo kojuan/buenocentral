@@ -48,15 +48,16 @@
 <html>
     <head>
         <body style="background-color: rgb(51, 52, 53);">
-            <link href="assets/css/admin_login.css" type="text/css" rel="stylesheet"/>
-            <link rel="stylesheet" href="assets/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Baloo+Chettan+2&display=swap" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <link href="assets/css/admin_login.css" type="text/css" rel="stylesheet"/>
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
         <content>    
-        <center><img src="assets/images/bc_header.png"></a></center>
-        <center>
+        <center><img src="assets/images/bc_header.png"></a>
             <div class="container">
                 <div class="login">
                     <h1 class="login-heading">
-                    <strong><font face="Arial">ADMIN</strong> Register</h1></font></h1>
+                    <strong>ADMIN</strong> Register</h1>
                     <!-- WHEN USER AND PASSWORD IS SUBMITTED, IT WILL GO TO THE loginConfirmation.php file -->
                     <form action='<?php echo $_SERVER['PHP_SELF']; ?>' method="post"> 
                     <p>
@@ -72,6 +73,17 @@
                         <br><br>
                         <a href="admin_login.php"><input type="button" id="btn" class="goToIndexBtn" name="login" value="(Login to Existing Account)    " /></a>
                     </form>
+                    <font color="white">[Date / Time] <span id="time"></span></font>
+                    <script>
+                        let timestamp = '<?=time();?>';
+                        function updateTime(){
+                        $('#time').html(Date(timestamp));
+                        timestamp++;
+                        }
+                        $(function(){
+                        setInterval(updateTime, 1000);
+                        }); 
+                    </script>
                 </div>
             </div>
         </center>

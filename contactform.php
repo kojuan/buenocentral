@@ -17,7 +17,6 @@
                 <li><a href="index.php">Home</a></li>
                 <li><a href="gallery.php">Gallery</a></li>
                 <li><a href="#">Contact Us</a></li>
-
         </div>
     </div>
 </div>
@@ -50,7 +49,6 @@
         </div>
         <br>
         <h3 style="line-height:20%;"><i class="fa fa-user fa-1x" style="line-height:6%;color:#339966"></i> Business Map Location:</h3>
-               
         <div class="mapouter"><div class="gmap_canvas"><iframe width="1011" height="698" id="gmap_canvas" src="https://maps.google.com/maps?q=Bueno%20Central%20Mati&t=&z=19&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.enable-javascript.net/blog/divi-discount/">divi discount</a></div><style>.mapouter{position:relative;text-align:right;height:698px;width:1011px;}.gmap_canvas {overflow:hidden;background:none!important;height:698px;width:1011px;}</style></div>  </div>
 </div>
 

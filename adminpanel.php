@@ -1,3 +1,4 @@
+
 <?php
     $conn = mysqli_connect("localhost", "root", "", "bc");
     error_reporting(E_ALL);
@@ -9,7 +10,7 @@
         session_destroy();
     }
     else {
-
+        
 ?> 
 <?php
 if(isset($_POST['delete_btn']))
@@ -47,8 +48,8 @@ if(isset($_POST['delete_btn']))
             header.classList.remove("sticky");
         }
         }
-    </script>
-    
+    </script> 
+
     <html>
     <head>
     <title>Bueno Central</title>
@@ -61,11 +62,12 @@ if(isset($_POST['delete_btn']))
         <div class="logo">
             <a href="#"><img src="assets/images/bc_header.png"></a>
             <br><br>
-            <button type="button" class="btn btn-default btn-sm"><a href="admin_logout.php" ><span class="glyphicon glyphicon-log-out"></span> Log out</a></button>
-            <br>
+            <button type="button" class="btn btn-default btn-sm"><a href="admin_logout.php" ><span class="glyphicon glyphicon-log-out"></span>  Log out</a></button>
+            <br><br>
             <form method="post" action="">
                 <td><button type="submit" class="btn btn-danger" name="delete_btn">Delete Admin Account</button></td>
             </form>
+            <a href="index.php" class="goToIndexBtn">Go to INDEX Homepage</a>
         </div>
     </center>
     <hr>
@@ -75,6 +77,7 @@ if(isset($_POST['delete_btn']))
         <center>
         <br><br><br><br><br>
         <?php
+        
         if ($_SERVER["REQUEST_METHOD"] == "POST"){
             if (isset($_POST["operationAdd"])){
                 $addOperation = $_POST["operationAdd"];
@@ -145,9 +148,9 @@ if(isset($_POST['delete_btn']))
         <form action="?" method="post" enctype="multipart/form-data">
            
                 <legend>ADD Announcement</legend>
-                Filename ->  <?php echo '<input type="text" size=40% name="filename" placeholder="Enter Filename" required/>' ?> <br>
+                Filename ->  <?php echo '<input type="text" size=40% name="filename" placeholder="Enter Filename , avoid symbols" required/>' ?> <br>
                 
-                Description -> <?php echo '<textarea name="desc" rows="3" cols="100" placeholder="Enter announcement. This entire message of this textbox will display on the user end." required></textarea>' ?>
+                Description -> <?php echo '<textarea wrap="on" name="desc" rows="3" cols="100" id="styled" placeholder="Enter announcement. This entire message of this textbox will display on the user end." required></textarea>' ?>
                 <br><input type="submit" name="operationAdd" value="Add">
     
         </form>
@@ -171,8 +174,8 @@ if(isset($_POST['delete_btn']))
                     
                 </select>
 
-                <textarea name="newDesc" rows="10" cols="150"></textarea>
-                   
+                <textarea name="newDesc" rows="10" cols="150" id="styled" ></textarea>
+                   <br>
                 <input type="submit" name="operationEditt" value="Edit">
             
         </form>

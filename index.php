@@ -5,7 +5,6 @@ session_start();
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     } 
-
     $sql = "UPDATE countervisit SET visits = visits+1 WHERE id = 1";
     $conn->query($sql);
 
@@ -52,11 +51,6 @@ session_start();
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <link rel="stylesheet" type="text/css" href="assets/css/w3.css">
 <link href="assets/css/style.css" type="text/css" rel="stylesheet"/>
-<!-- Google font -->
-<!-- <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,900" rel="stylesheet">
-<!-- Bootstrap -->
-<!-- <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" /> --> -->
-<!-- Custom stlylesheet -->
 
 </head>
 <div class="headerOfHeaderContainer">
@@ -69,7 +63,6 @@ session_start();
                 <li><a href="#">Home</a></li>
                 <li><a href="gallery.php">Gallery</a></li>
                 <li><a href="contactform.php">Contact Us</a></li>
-
         </div>
     </div>
 </div>
@@ -90,46 +83,43 @@ session_start();
         }); 
     </script>
 
-    <center><div>
-    <fieldset>
-  <legend>Announcement(s)</legend>
-  <div style='background-color:#1d5a75;'><p style='color:#bae9ff'>
+    <fieldset><center><div>
+    <legend>Announcement(s)</legend>
+    <div style='background-color:#1d5a75;'><p style='color:#bae9ff'>
     <?php
-    $filename = 'assets/txt/';
-    $counter = 0;
-    $file_exist = false;
-    foreach (scandir($filename) as $announcement){
-        if ($announcement == "." || $announcement == ".."){
-            $counter++;
-            
-        } 
-        else{
-            ?>
-            <fieldset>
-                <?php
-                $splitter =  explode(".",$announcement);
-                echo "<div style='background-color:#216583;'><p style='color:#bae9ff'>";
-                echo "<legend>" . $splitter[0] . "</legend><br>";
-
-                $fileOpen = fopen($filename . $announcement, 'r');
-                $fileRead = fread($fileOpen, 1000);
-                echo $fileRead . "";
-                fclose($fileOpen);
-        
-                $file_exist = true;
+        $filename = 'assets/txt/';
+        $counter = 0;
+        $file_exist = false;
+        foreach (scandir($filename) as $announcement){
+            if ($announcement == "." || $announcement == ".."){
+                $counter++;
+                
+            } //if loop
+            else{
                 ?>
-            </fieldset>
-            <br>
-            <?php
-        }
-    }
-    if ($file_exist == false){
-        echo "<div style='background-color:#3094c0;'><p style='color:#e8eff2'>";
-        echo "No Announcement for now. Stay updated.<br>";
-    }
+                <fieldset>
+                    <?php
+                    $splitter =  explode(".",$announcement);
+                    echo "<div style='background-color:#216583;'><p style='color:#bae9ff'>";
+                    echo "<legend>" . $splitter[0] . "</legend><br>";
+
+                    $fileOpen = fopen($filename . $announcement, 'r');
+                    $fileRead = fread($fileOpen, 1000);
+                    echo $fileRead . "";
+                    fclose($fileOpen);
+            
+                    $file_exist = true;
+                    ?>
+                </fieldset>
+                <br>
+                <?php
+            } //else loop
+        } //foreach loop
+        if ($file_exist == false){
+            echo "<div style='background-color:#3094c0;'><p style='color:#e8eff2'>";
+            echo "No Announcement for now. Stay updated.<br>"; }
     ?>
-    </fieldset>
-    </div></center>
+    </fieldset></div></center>
 
     <div class="w3-content w3-section" style="max-width:1550px;">
         <img class="mySlides w3-animate-fading" src="assets/images/image_1.jpg" style="width:100%">
@@ -140,9 +130,7 @@ session_start();
         <img class="mySlides w3-animate-fading" src="assets/images/image_6.jpg" style="width:100%">
     </div>
 
-    
     <?php
-
         // define variables and set to empty values
         $firstname = $surname = $email = $phone = $quantity = $size = $submit = "";
 
@@ -165,15 +153,70 @@ session_start();
     ?>
 
     <center>
-    <a href="#" class="buttonBCEXCLUSIVES" name="btnBcExclusives" disabled>BC EXCLUSIVES</a>
+    <!-- <a href="#" class="buttonBCEXCLUSIVES" name="btnBcExclusives" disabled>BC EXCLUSIVES</a> -->
      <!-- The Band Section -->
-  <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
+    <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
     <h2 class="w3-wide">ABOUT US</h2>
     <p class="w3-opacity"><i>"Basta Bueno, Barato!"</i></p>
     <p class="w3-justify"> The Bueno Central provides convenient style of shopping experience.  We're dedicated to giving you the very best of local and exported products, with a focus on customer service and business quality.
     Established on 2015, Bueno Central has come a long way from its beginnings in the City of Mati, Davao Oriental.
     </p>
+	<script src="assets/js/jquery.min.js"></script>
+	<script>
+		$('.form-control').each(function () {
+			floatedLabel($(this));
+		});
 
+		$('.form-control').on('input', function () {
+			floatedLabel($(this));
+		});
+		function floatedLabel(input) {
+			var $field = input.closest('.form-group');
+			if (input.val()) {
+				$field.addClass('input-not-empty');
+			} else {
+				$field.removeClass('input-not-empty');
+			}
+		}
+	</script>
+    </center>
+    <script>
+        let myIndex = 0;
+        carousel();
+
+        function carousel() {
+        let i;
+        let x = document.getElementsByClassName("mySlides");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";  
+        }
+        myIndex++;
+        if (myIndex > x.length) {myIndex = 1}    
+        x[myIndex-1].style.display = "block";  
+        setTimeout(carousel, 5000);    
+        }
+    </script>
+    <p><button onclick="topFunction()" id="goTopButton" title="Go to top"><img src="assets/images/topImageButton.png"></button></p>
+    </body>
+    <script>
+        goToTopButton = document.getElementById("goTopButton");
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() 
+        {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                goToTopButton.style.display = "block";} else {
+                goToTopButton.style.display = "none";}}
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera 
+        }
+    </script>
+
+</html>
     <!-- <div id="booking" class="section">
 		<div class="section-center">
 			<div class="container">
@@ -259,80 +302,3 @@ session_start();
 			</div>
 		</div>
 	</div> -->
-
-	<script src="assets/js/jquery.min.js"></script>
-	<script>
-		$('.form-control').each(function () {
-			floatedLabel($(this));
-		});
-
-		$('.form-control').on('input', function () {
-			floatedLabel($(this));
-		});
-
-		function floatedLabel(input) {
-			var $field = input.closest('.form-group');
-			if (input.val()) {
-				$field.addClass('input-not-empty');
-			} else {
-				$field.removeClass('input-not-empty');
-			}
-		}
-	</script>
-    </center>
-    
-    
-    
-    
-    
-    <script>
-        let myIndex = 0;
-        carousel();
-
-        function carousel() {
-        let i;
-        let x = document.getElementsByClassName("mySlides");
-        for (i = 0; i < x.length; i++) {
-            x[i].style.display = "none";  
-        }
-        myIndex++;
-        if (myIndex > x.length) {myIndex = 1}    
-        x[myIndex-1].style.display = "block";  
-        setTimeout(carousel, 5000);    
-        }
-    </script>
-
-    <p>
-        <button onclick="topFunction()" id="goTopButton" title="Go to top"><img src="assets/images/topImageButton.png"></button>
-    </p>
-
-    
-    </body>
-
-
-
-
-<script>
-    goToTopButton = document.getElementById("goTopButton");
-
-    // When the user scrolls down 20px from the top of the document, show the button
-    window.onscroll = function() {scrollFunction()};
-
-    function scrollFunction() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        goToTopButton.style.display = "block";
-    } else {
-        goToTopButton.style.display = "none";
-    }
-    }
-
-    // When the user clicks on the button, scroll to the top of the document
-    function topFunction() {
-    document.body.scrollTop = 0; // For Safari
-    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-    }
-
-
-</script>
-
-</html>
