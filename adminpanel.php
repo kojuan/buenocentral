@@ -67,7 +67,8 @@ if(isset($_POST['delete_btn']))
             <form method="post" action="">
                 <td><button type="submit" class="btn btn-danger" name="delete_btn">Delete Admin Account</button></td>
             </form>
-            <a href="index.php" class="goToIndexBtn">Go to INDEX Homepage</a>
+            <a href="index.php" class="goToIndexBtn" target="_blank">Go to INDEX Homepage</a>
+            <a href="http://localhost/phpmyadmin/" class="goToIndexBtn" target="_blank">Go to LOCALHOST/PHPMYADMIN Page</a>
         </div>
     </center>
     <hr>
@@ -205,9 +206,11 @@ if(isset($_POST['delete_btn']))
     </div>
     <br><br><br>
         <h1>Upload Gallery</h1>
-        <form action="?" method="post" enctype="multipart/form-data">
-            Filename: <input type="file" name="file" accept="image/x-png,image/jpeg"> 
-            <input type="submit" name="operationUpload" value="Upload">
+        <form action="gallery/gallery_administrator.php" method="post" enctype="multipart/form-data">
+            <!-- Filename: <input type="file" name="file" accept="image/x-png,image/jpeg">  -->
+            <!-- <input type="submit" name="operationUpload" value="Upload"> -->
+           <input type="submit" name="operationUpload" value="Upload a Photo">
+            
         </form>
     </center>
     <br><br><br>

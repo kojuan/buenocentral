@@ -1,3 +1,7 @@
+body {
+   background-color: rgb(217, 242, 255);
+}
+
 input[type=submit] {
   background-color: rgb(39, 121, 236);
   border-radius: 10px;

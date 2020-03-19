@@ -15,7 +15,7 @@
 
         <div class="nav">
                 <li><a href="index.php">Home</a></li>
-                <li><a href="gallery.php">Gallery</a></li>
+                <li><a href="gallery/gallery_index.php">Gallery</a></li>
                 <li><a href="#">Contact Us</a></li>
         </div>
     </div>

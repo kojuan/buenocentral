@@ -67,7 +67,7 @@ if(isset($_POST["username"]))
                         <br><br>
                         <a href="admin_register.php" class="goToIndexBtn" name="register">Register a New Admin Account</a>
                         <br><br>
-                        <a href="index.php" class="goToIndexBtn">Go to INDEX Homepage</a>
+                        <a href="index.php" class="goToIndexBtn" target="_blank">Go to INDEX Homepage</a>
                     </p>
                     </div>
                     <font color="white">[Date / Time] <span id="time"></span></font>

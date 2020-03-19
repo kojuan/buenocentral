@@ -61,7 +61,7 @@ session_start();
 
         <div class="nav">
                 <li><a href="#">Home</a></li>
-                <li><a href="gallery.php">Gallery</a></li>
+                <li><a href="gallery/gallery_index.php">Gallery</a></li>
                 <li><a href="contactform.php">Contact Us</a></li>
         </div>
     </div>
